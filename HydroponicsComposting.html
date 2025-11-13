@@ -171,9 +171,21 @@
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+  <audio id="bg-music" autoplay loop muted>
     <source src="bas bajna chiye gana.mp3" type="audio/mpeg">
   </audio>
+  <script>
+  const bgMusic = document.getElementById('bg-music');
+
+  // Allow autoplay when muted
+  bgMusic.play();
+
+  // Unmute and restart after first user interaction
+  document.addEventListener('click', () => {
+    bgMusic.muted = false;
+    bgMusic.play();
+  }, { once: true }); // run only once
+</script>
   <header>
     <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa23vLIObmjp6--dsqiMJ7dnEFQqP8ec3qZw&amp;s" alt="" width="100"></center>
     <em>Podar International School, Chinchwad</em>
@@ -424,6 +436,7 @@
 
 
 </body></html>
+
 
 
 
