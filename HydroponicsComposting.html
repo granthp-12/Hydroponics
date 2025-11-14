@@ -177,14 +177,19 @@
   <script>
   const bgMusic = document.getElementById('bg-music');
 
-  // Allow autoplay when muted
-  bgMusic.play();
+// Allow autoplay when muted
+bgMusic.play();
 
-  // Unmute and restart after first user interaction
-  document.addEventListener('click', () => {
-    bgMusic.muted = false;
-    bgMusic.play();
-  }, { once: true }); // run only once
+// Unmute and restart after first user interaction
+function unlockAudio() {
+  bgMusic.muted = false;
+  bgMusic.play();
+}
+
+// Trigger on both desktop + mobile ASAP
+["mousedown", "touchstart"].forEach(eventName => {
+  document.addEventListener(eventName, unlockAudio, { once: true });
+});
 </script>
   <header>
     <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa23vLIObmjp6--dsqiMJ7dnEFQqP8ec3qZw&amp;s" alt="" width="100"></center>
@@ -436,6 +441,7 @@
 
 
 </body></html>
+
 
 
 
