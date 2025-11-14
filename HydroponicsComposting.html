@@ -187,9 +187,10 @@ function unlockAudio() {
 }
 
 // Trigger on both desktop + mobile ASAP
-["mousedown", "touchstart"].forEach(eventName => {
+["pointerdown", "mousedown", "touchstart"].forEach(eventName => {
   document.addEventListener(eventName, unlockAudio, { once: true });
 });
+
 </script>
   <header>
     <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa23vLIObmjp6--dsqiMJ7dnEFQqP8ec3qZw&amp;s" alt="" width="100"></center>
@@ -441,6 +442,7 @@ function unlockAudio() {
 
 
 </body></html>
+
 
 
 
